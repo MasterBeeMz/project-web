@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>REG - Maejo University</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      margin: 0;
+    }
+
+    table.excel-table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+
+    table.excel-table td {
+      border: 1px solid #34d399;
+      padding: 12px 18px;
+      text-align: center;
+      font-weight: 600;
+      background-color: #dcfce7;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    table.excel-table td:hover {
+      background-color: #86efac;
+      color: #065f46;
+      transform: scale(1.05);
+    }
+
+    .hover-gradient:hover {
+      background: linear-gradient(90deg, #22c55e, #4ade80);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: background 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-white text-base text-gray-800 flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white text-green-800 py-4 shadow-md">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 gap-4">
+      <div class="flex items-center space-x-4">
+        <img src="/picture/MJU_LOGO.svg.png" alt="Maejo University Logo" class="w-16 h-16" />
+        <div>
+          <h1 class="text-4xl font-extrabold">REG</h1>
+          <p class="text-base">Maejo University</p>
+          <p class="text-sm">มหาวิทยาลัยแม่โจ้</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="bg-green-700 text-white shadow">
+    <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row flex-wrap items-center justify-between gap-4">
+      <ul class="flex flex-wrap gap-4 text-sm font-semibold justify-center md:justify-start">
+        <li><a href="/main/main.html" class="hover:underline hover-gradient hover-scale">หน้าหลัก</a></li>
+        <li><a href="/timetable/ตารางเรียน.html" class="hover:underline hover-gradient hover-scale">ตารางเรียน</a></li>
+        <li><a href="/Room/index.html" class="hover:underline hover-gradient hover-scale">ตารางการใช้ห้อง</a></li>
+        <li><a href="/calender/calender.html" class="hover:underline hover-gradient hover-scale">ปฏิทินการศึกษา</a></li>
+        <li><a href="#" class="hover:underline hover-gradient hover-scale">หลักสูตรที่เปิดสอน</a></li>
+        <li><a href="#" class="hover:underline hover-gradient hover-scale">เว็บไซต์ที่ดำเนินงานบริหาร</a></li>
+      </ul>
+
+      <!-- ปุ่มออกจากระบบ -->
+      <div class="flex flex-wrap gap-2 justify-center md:justify-end">
+        <a href="/main/main.html" class="bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-600 hover:scale-105 transition font-medium shadow text-sm">
+          ออกจากระบบนักศึกษา
+        </a>
+       
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="py-10 flex flex-col md:flex-row items-start gap-10 container mx-auto px-4 flex-grow">
+    <!-- รูปภาพ -->
+    <div class="w-full md:w-1/2">
+      <img src="/picture/รักษาสภาพ.jpg" alt="ภาพประกอบระบบ REG" class="rounded-xl shadow-lg w-full max-w-lg mx-auto" />
+    </div>
+
+    <!-- ตารางเมนูแบบ Excel -->
+    <div class="w-full md:w-1/2 max-w-md mx-auto">
+      <table class="excel-table">
+        <tbody>
+          <tr><td>ติดต่อสอบถาม</td></tr>
+          <tr><td>ประกาศ ระเบียน ข้อบังคับ</td></tr>
+          <tr><td>รอบรั้วมหาลัย</td></tr>
+          <tr><td>งานวิจัยและบริการวิชาการ</td></tr>
+          <tr><td>ฐานข้อมูลองค์ความรู้</td></tr>
+          <tr><td>ปรัญญา วิสัยทัศน์ พันธกิจ</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-200 border-t text-sm text-gray-700 mt-auto">
+    <div class="container mx-auto py-6 px-4 flex flex-col md:flex-row justify-between items-start">
+      <div class="flex items-center space-x-4 mb-4 md:mb-0">
+        <img src="/picture/MJU_LOGO.svg.png" alt="Maejo University Logo" class="w-20 h-auto" />
+        <div>
+          <h2 class="font-semibold text-gray-800">มหาวิทยาลัยแม่โจ้</h2>
+          <p class="text-sm text-gray-600">มุ่งสู่การเป็นมหาวิทยาลัยเชิงนิเวศ</p>
+        </div>
+      </div>
+      <div class="text-sm text-gray-600 space-y-1">
+        <p>63 หมู่ 4 ต.หนองหาร อ.สันทราย จ.เชียงใหม่ 50290</p>
+        <p>โทรศัพท์ : 053 873000 | โทรสาร : 053 873015</p>
+        <p>Email: maejo@mju.ac.th | งานเอกสาร: saraban_mju@mju.ac.th</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

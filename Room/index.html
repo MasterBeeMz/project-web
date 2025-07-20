@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ตารางการใช้ห้อง - มหาวิทยาลัยแม่โจ้</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media (max-width: 768px) {
+
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+                width: 100%;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                margin-bottom: 1.5rem;
+                border: 1px solid #ddd;
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                background-color: white;
+                box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+            }
+
+            td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.75rem 1rem;
+                position: relative;
+                text-align: left;
+                white-space: normal;
+                word-break: break-word;
+            }
+
+            td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: #333;
+                flex-basis: 45%;
+                flex-shrink: 0;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-green-50 text-gray-800 min-h-screen flex flex-col items-center">
+
+    <header class="bg-white w-full flex items-center justify-between p-2 sm:p-4 border-b shadow-sm">
+        <div class="flex items-center space-x-2 sm:space-x-4">
+            <img src="/picture/MJU_LOGO.svg.png" alt="MJU Logo" class="h-10 sm:h-12">
+            <div class="flex flex-col leading-tight">
+                <span class="font-bold text-xl sm:text-3xl">REG</span>
+                <span class="text-base sm:text-xl font-medium">Maejo University</span>
+                <span class="text-sm sm:text-lg text-gray-700 hidden sm:block">มหาวิทยาลัยแม่โจ้</span>
+            </div>
+        </div>
+    </header>
+
+    <nav style="background-color: #00A65A;" class="text-white w-full py-3 shadow-md">
+        <div class="container mx-auto px-4">
+
+            <details class="md:hidden">
+                <summary class="p-2 cursor-pointer rounded-md hover:bg-green-600 flex items-center justify-between">
+                    <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </summary>
+
+                <div class="bg-green-700 rounded-md shadow-md mt-2">
+                    <a href="/main/main.html" class="block px-4 py-2 hover:bg-green-600 rounded-md">หน้าหลัก</a>
+                    <a href="/timetable/ตารางเรียน.html" class="block px-4 py-2 hover:bg-green-600 rounded-md">ตารางเรียน</a>
+                    <a href="/Room/index.html" class="block px-4 py-2 hover:bg-green-600 rounded-md">ตารางการใช้ห้อง</a>
+                    <a href="/calender/calender.html" class="block px-4 py-2 hover:bg-green-600 rounded-md">ปฏิทินการศึกษา</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">หลักสูตรที่เปิดสอน</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">แผนเข้าและการลงทะเบียน</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">เว็บไซต์ที่ดำเนินงานบริการ</a>
+                    <a href="/main/main.html" class="block px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md">ออกจากระบบ</a>
+                </div>
+            </details>
+
+            <!--  เมนู Desktop -->
+            <div class="hidden md:flex flex-1 justify-around items-center mt-4 md:mt-0">
+                <a href="/main/main.html" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">หน้าหลัก</a>
+                <a href="/timetable/ตารางเรียน.html" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">ตารางเรียน</a>
+                <a href="/Room/index.html" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">ตารางการใช้ห้อง</a>
+                <a href="/calender/calender.html" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">ปฏิทินการศึกษา</a>
+                <a href="#" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">หลักสูตรที่เปิดสอน</a>
+                <a href="#" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">แผนเข้าและการลงทะเบียน</a>
+                <a href="#"
+                    class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">เว็บไซต์ที่ดำเนินงานบริการ</a>
+                <a href="/main/main.html" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md whitespace-nowrap">ออกจากระบบ</a>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-green-700 pb-2">
+            <a href="/main/main.html" class="block px-4 py-2 hover:bg-green-600 rounded-md">หน้าหลัก</a>
+            <a href="/timetable/ตารางเรียน.html" class="block px-4 py-2 hover:bg-green-600 rounded-md">ตารางเรียน</a>
+            <a href="/Room/index.html" class="block px-4 py-2 hover:bg-green-600 rounded-md">ตารางการใช้ห้อง</a>
+            <a href="/calender/calender.html" class="block px-4 py-2 hover:bg-green-600 rounded-md">ปฏิทินการศึกษา</a>
+            <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">หลักสูตรที่เปิดสอน</a>
+            <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">แผนเข้าและการลงทะเบียน</a>
+            <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">เว็บไซต์ที่ดำเนินงานบริการ</a>
+            <a href="/main/main.html" class="block px-4 bg-red-600 hover:bg-red-700 rounded-md">ออกจากระบบ</a>
+        </div>
+    </nav>
+
+</div>
+
+    <main class="w-full px-4 py-6 max-w-6xl">
+        <div class="bg-white rounded-lg shadow-lg overflow-x-auto">
+            <table class="min-w-full border-collapse w-full">
+                <caption class="text-2xl font-bold text-gray-800 p-6 bg-gray-50">
+                    ตารางการใช้ห้อง - มหาวิทยาลัยแม่โจ้ เชียงใหม่
+                </caption>
+                <thead class="text-white sticky top-0" style="background-color:#00A65A;">
+                    <tr>
+                        <th scope="col" class="text-left py-3 px-6 font-semibold">รหัส</th>
+                        <th scope="col" class="text-left py-3 px-6 font-semibold">ชื่ออาคาร</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">000</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">ประชาสัมพันธ์</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">101</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารเรียนรวมสัตวศาสตร์</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">102</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">ประตูรัฐ ณ เชียงใหม่</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">103</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">สื่อสารเกษตร</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">104</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">คณะวิศวกรรมและอุตสาหกรรมเกษตร</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">105</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">คณะศิลปศาสตร์</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">106</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">คณะผลิตกรรมการเกษตรและอาคารพานิช</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">107</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">คณะเศรษฐศาสตร์</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">108</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารปฏิบัติการเกษตรและอาคารหอพัก</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">109</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">คณะสัตวศาสตร์และเทคโนโลยี</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">110</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารเรียนรวม (รหัส B)</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">111</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารวิทยบริการและหอสมุด</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">112</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารเรียนรวมวิทยาศาสตร์</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">113</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารบัวเงิน 2</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">114</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารบัวเงิน 3</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">115</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารไม้ผล</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">116</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารพืชผัก</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">117</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารเส้นใย</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">118</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารข้าว</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">119</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">TBA</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">120</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">ภาคพืชไร่</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">121</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารเทคโนโลยีชีวภาพ</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">122</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคาร 77</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">123</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารที่พักส่วน</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">124</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารศูนย์ธรรมาภิบาลดิจิทัล</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">125</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารบัวใบบูรพา 70 ปี : สร้างปัญญาเพื่อแผ่นดิน</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">126</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารศูนย์บริการอิเล็กทรอนิกส์</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">127</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารบ่อบำบัด</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">128</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">ศูนย์เรียนรู้การเรียนการสอนวิชาชีวิตเกษตร</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">129</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารจัดสัมมนาเกียรติสมเด็จพระเทพฯ</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">130</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารไม้ผล 2</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">131</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารวิทยาศาสตร์</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">132</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารฟาร์มศรี</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">133</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารพยาบาล/ห้องพยาบาล</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">134</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคาร 75 ปี (คณะสถาปัตยกรรมและการสื่อสาร)</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">135</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารหอพักพระราชทานหญิงญาณีฯ</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">140</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารกิจกรรมองค์การมหาชน</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">141</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารรวมพลศึกษา</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">142</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารฝึกอบรม</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">143</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารกิจกรรม</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">144</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารกีฬา</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">145</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">สนามกีฬา</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">146</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">บ้านพักอาจารย์และห้องสมุดศิษย์เก่า</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">150</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">สำนักงานคณบดี/เลขานุการ</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">151</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารสำนักคณะ</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">152</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารสำนักงาน</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">153</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารเรียนส่วนกลาง</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">154</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารสำนักงานส่วนกลาง</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">155</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารประชาสัมพันธ์</td>
+                    </tr>
+                    <tr class="odd:bg-white even:bg-gray-50 hover:bg-blue-100">
+                        <td class="py-3 px-6 font-bold text-blue-600" data-label="รหัส">160</td>
+                        <td class="py-3 px-6" data-label="ชื่ออาคาร">อาคารปฏิบัติการการสัตวศาสตร์</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>

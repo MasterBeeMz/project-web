@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>บันทึกเกรดรายบุคคล</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-green-50 text-gray-800 min-h-screen flex flex-col items-center">
+
+  <!-- Header -->
+  <header class="bg-white w-full flex items-center justify-between p-4 border-b shadow-sm">
+    <div class="flex items-center space-x-4">
+      <img src="/picture/MJU_LOGO.svg.png" alt="MJU Logo" class="h-12">
+      <div class="flex flex-col leading-tight">
+        <span class="font-bold text-2xl">REG</span>
+        <span class="text-xl font-medium">Maejo University</span>
+        <span class="text-lg text-gray-700 hidden sm:block">มหาวิทยาลัยแม่โจ้</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav style="background-color: #00A65A;" class="text-white w-full py-3 shadow-md">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <button id="mobile-menu-button" class="md:hidden p-2 focus:outline-none focus:bg-green-600 rounded-md">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+          </path>
+        </svg>
+      </button>
+
+      <div class="hidden md:flex flex-1 justify-around items-center">
+        <a href="/main/main.html" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">หน้าหลัก</a>
+        <a href="/timetable/ตารางเรียน.html" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">ตารางเรียน</a>
+        <a href="/Room/index.html" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">ตารางการใช้ห้อง</a>
+        <a href="/calender/calender.html" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">ปฏิทินการศึกษา</a>
+        <a href="#" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">หลักสูตรที่เปิดสอน</a>
+        <a href="#" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">แผนเข้าและการลงทะเบียน</a>
+        <a href="#" class="px-4 py-2 hover:bg-green-600 rounded-md whitespace-nowrap">เว็บไซต์ที่ดำเนินงานบริการ</a>
+        <a href="/main/main.html" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-md whitespace-nowrap">ออกจากระบบ</a>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-green-700 pb-2">
+      <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">หน้าหลัก</a>
+      <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">ตารางเรียน</a>
+      <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">ตารางการใช้ห้อง</a>
+      <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">ปฏิทินการศึกษา</a>
+      <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">หลักสูตรที่เปิดสอน</a>
+      <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">แผนเข้าและการลงทะเบียน</a>
+      <a href="#" class="block px-4 py-2 hover:bg-green-600 rounded-md">เว็บไซต์ที่ดำเนินงานบริการ</a>
+      <a href="/main/main.html" class="block px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md">ออกจากระบบ</a>
+
+    </div>
+  </nav>
+
+  <body class="bg-gray-100 p-6">
+
+    <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
+      <h1 class="text-2xl font-bold mb-6 text-center text-gray-800">บันทึกเกรดรายบุคคล</h1>
+
+      <div class="mb-6">
+        <p class="text-lg font-semibold">ชื่อนักศึกษา: <span class="text-indigo-600">สมชาย ใจดี</span></p>
+        <p class="text-lg font-semibold">รหัสนักศึกษา: <span class="text-indigo-600">6704101387</span></p>
+      </div>
+
+      <table class="min-w-full table-auto border-collapse border border-gray-300">
+        <thead>
+          <tr class="bg-indigo-600 text-white">
+            <th class="border border-gray-300 px-4 py-2">ลำดับ</th>
+            <th class="border border-gray-300 px-4 py-2">ชื่อวิชา</th>
+            <th class="border border-gray-300 px-4 py-2">เกรด</th>
+            <th class="border border-gray-300 px-4 py-2">คะแนน</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center hover:bg-indigo-50">
+            <td class="border border-gray-300 px-4 py-2">1</td>
+            <td class="border border-gray-300 px-4 py-2 text-left">คณิตศาสตร์สำหรับวิทยาการคอมพิวเตอร์</td>
+            <td class="border border-gray-300 px-4 py-2">A</td>
+            <td class="border border-gray-300 px-4 py-2">95</td>
+          </tr>
+          <tr class="text-center hover:bg-indigo-50 bg-gray-50">
+            <td class="border border-gray-300 px-4 py-2">2</td>
+            <td class="border border-gray-300 px-4 py-2 text-left">โครงสร้างข้อมูลและอัลกอริทึม</td>
+            <td class="border border-gray-300 px-4 py-2">B+</td>
+            <td class="border border-gray-300 px-4 py-2">88</td>
+          </tr>
+          <tr class="text-center hover:bg-indigo-50">
+            <td class="border border-gray-300 px-4 py-2">3</td>
+            <td class="border border-gray-300 px-4 py-2 text-left">ฐานข้อมูลโครงสร้างเชิงสัมพันธ์</td>
+            <td class="border border-gray-300 px-4 py-2">A</td>
+            <td class="border border-gray-300 px-4 py-2">92</td>
+          </tr>
+          <tr class="text-center hover:bg-indigo-50 bg-gray-50">
+            <td class="border border-gray-300 px-4 py-2">4</td>
+            <td class="border border-gray-300 px-4 py-2 text-left"> เว็บเทคโนโลยี</td>
+            <td class="border border-gray-300 px-4 py-2">B</td>
+            <td class="border border-gray-300 px-4 py-2">85</td>
+          </tr>
+          <tr class="text-center hover:bg-indigo-50">
+            <td class="border border-gray-300 px-4 py-2">3</td>
+            <td class="border border-gray-300 px-4 py-2 text-left">ภาษาอังกฤษเชิงวิทยาศาสตร์และนวัตกรรม</td>
+            <td class="border border-gray-300 px-4 py-2">A</td>
+            <td class="border border-gray-300 px-4 py-2">92</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr class="bg-indigo-100 font-semibold">
+            <td colspan="3" class="border border-gray-300 px-4 py-2 text-right">เฉลี่ยคะแนน</td>
+            <td class="border border-gray-300 px-4 py-2 text-center">90</td>
+          </tr>
+          <tr class="bg-indigo-200 font-semibold">
+            <td colspan="3" class="border border-gray-300 px-4 py-2 text-right">เกรดเฉลี่ย (GPA)</td>
+            <td class="border border-gray-300 px-4 py-2 text-center">3.75</td>
+          </tr>
+        </tfoot>
+        </tfoot>
+      </table>
+    </div>
+
+  </body>
+
+</html>
